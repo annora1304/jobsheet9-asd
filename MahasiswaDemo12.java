@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class MahasiswaDemo12 { 
     public static void main(String[] args) {
         StackTugasMahasiswa12 stack = new StackTugasMahasiswa12(5);
@@ -12,6 +11,9 @@ public class MahasiswaDemo12 {
             System.out.println("2. Menilai Tugas");
             System.out.println("3. Melihat Tugas Teratas");
             System.out.println("4. Melihat Daftar Tugas");
+            System.out.println("5. Melihat Tugas Pertama Dikirim");
+            System.out.println("6. Jumlah Tugas Saat Ini");
+            System.out.println("7. Keluar");
             System.out.print("Pilih: ");
             pilih = scan.nextInt();
             scan.nextLine(); 
@@ -28,7 +30,6 @@ public class MahasiswaDemo12 {
                     stack.push(mhs);
                     System.out.printf("Tugas %s berhasil dikumpulkan\n", nama);
                     break;
-
                 case 2:
                     Mahasiswa12 dinilai = stack.pop();
                     if (dinilai != null) {
@@ -40,24 +41,30 @@ public class MahasiswaDemo12 {
                         System.out.printf("Nilai Tugas %s adalah %d\n", dinilai.nama, nilai);
                     }
                     break;
-
                 case 3:
                     Mahasiswa12 lihat = stack.peek();
                     if (lihat != null) {
                         System.out.println("Tugas terakhir dikumpulkan oleh " + lihat.nama);
                     }
                     break;
-
                 case 4:
                     System.out.println("Daftar semua tugas");
                     System.out.println("Nama\tNIM\tKelas\tNilai");
                     stack.print();
                     break;
-
+                case 5:
+                    Mahasiswa12 bawah = stack.bottom();
+                    if (bawah != null) {
+                        System.out.println("Tugas pertama dikumpulkan oleh " + bawah.nama);
+                    }
+                    break;
+                case 6:
+                    System.out.println("Jumlah tugas saat ini: " + stack.jumlahTugas());
+                    break;
+                
                 default:
                     System.out.println("Pilihan tidak valid.");
             }
-
-        } while (pilih >= 1 && pilih <= 4);
+        } while (pilih >= 1 && pilih <= 6);
     }
 }

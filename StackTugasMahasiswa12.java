@@ -22,7 +22,6 @@ public class StackTugasMahasiswa12 {
             System.out.println("Stack penuh! Tidak bisa menambahkan tugas lagi.");
         }
     }
-    
     public Mahasiswa12 pop() {
         if (!isEmpty()) {
             Mahasiswa12 mhs = stack[top];
@@ -41,6 +40,17 @@ public class StackTugasMahasiswa12 {
             return null;
         }
     }
+    public Mahasiswa12 bottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            System.out.println("Stack kosong!");
+            return null;
+        }
+    }
+    public int jumlahTugas() {
+        return top + 1;
+    }    
     public void print() {
         for (int i = 0; i <= top; i++) {
             System.out.println("Nama: " + stack[i].nama + ", NIM: " + stack[i].nim + ", Kelas: " + stack[i].kelas + ", Nilai: " + stack[i].nilai);
