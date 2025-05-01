@@ -59,16 +59,17 @@ public class StackTugasMahasiswa12 {
     }
     public String KonversiDesimalKeBiner(int nilai) {
         StackKonversi12 stack = new StackKonversi12();
-        while (nilai > 0) {
-            int sisa = nilai % 2;
+        int kode = nilai;
+        while (kode > 0) {
+            int sisa = kode % 2;
             stack.push(sisa);
-            nilai = nilai / 2;
+            kode = kode / 2;
         }
-        String biner = new String();
+        String hasil = "" + kode;
         while (!stack.isEmpty()) {
-            biner += stack.pop();
+            hasil += stack.pop();
         }
-        return biner;
+        return hasil;
     }
     public void printBiner(int nilai) {
         String biner = KonversiDesimalKeBiner(nilai);
